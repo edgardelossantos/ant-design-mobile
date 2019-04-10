@@ -28,6 +28,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     onOk: () => {},
     onCancel: () => {},
     multiSelect: false,
+    onClickFirstLevelItem: () => {},
   };
 
   static contextTypes = {
@@ -94,7 +95,10 @@ export default class Menu extends React.Component<MenuProps, StateType> {
   }
 
   onClickFirstLevelItem = (dataItem: DataItem) => {
-    const { onChange } = this.props;
+    const { onChange, onClickFirstLevelItem } = this.props;
+    if (onClickFirstLevelItem) {
+      onClickFirstLevelItem(dataItem);
+    }
     this.setState({
       firstLevelSelectValue: dataItem.value,
     });

@@ -27,4 +27,5 @@ export interface MenuProps {
   level?: 1 | 2;
   height?: number;
   multiSelect?: boolean;
+  onClickFirstLevelItem?: (dataItem?: DataItem) => void;
 }
